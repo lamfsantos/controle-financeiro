@@ -1,13 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
 from repository.db import db
 
-class Process(db.Model):
-    valor_total
-    entrada
-    data_de_vencimento
+class Processo(db.Model):
+    processo_id = db.Column(db.Integer, primary_key=True)
+    valor_total = db.Column(db.Float, nullable=False)
+    valor_entrada = db.Column(db.Float)
+    observacoes
 
-    
-    numero_de_parcelas
-    valor_parcelas
-
-    pass
+    # Foreign Key: links to Client.id
+    cliente_id = db.Column(db.Integer, db.ForeignKey('cliente.cliente_id'), nullable=False)
