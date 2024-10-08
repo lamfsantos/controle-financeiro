@@ -1,0 +1,17 @@
+Cliente: nome completo, endereço, CPF, telefone, numero do processo
+    -> processos com as parcelas, cobraças, etc
+
+Precisa valor total, entrada, data de vencimento, numero de parcelas, valor das parcelas
+
+Cobraças via whatsapp
+
+Calculo de juros(multa de 2% fixo em cima do vencido, mais 1% de juros composto ao mês) com possibilidade de abatar o juros e a multa
+
+___________________________
+
+Baixa parcial com possibilidade de escolher onde vai a baixa, e caso faltar dinheiro
+possibilidade de gerar uma nova parcela(com juros) e uma nova data a escolher
+
+___________________________
+
+Popular os dados iniciais com as fichas e os dados do ProADV
