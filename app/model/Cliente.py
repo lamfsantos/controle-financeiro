@@ -1,4 +1,3 @@
-from flask_sqlalchemy import SQLAlchemy
 from repository.db import db
 
 class Cliente(db.Model):
@@ -7,6 +6,9 @@ class Cliente(db.Model):
     endereco = db.Column(db.String(100), nullable=False)
     cpf = db.Column(db.String(11), nullable=False)
     email = db.Column(db.String(50))
+    telefone_principal
+    telefone_secundario
+    observacoes
 
     def __repr__(self):
         return f"User('{self.nome}', '{self.email}')"

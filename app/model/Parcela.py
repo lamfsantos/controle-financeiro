@@ -1,4 +1,3 @@
-from flask_sqlalchemy import SQLAlchemy
 from repository.db import db
 
 class Parcela(db.Model):
