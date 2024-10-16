@@ -1,7 +1,5 @@
 # app.py
-from flask import Flask
-
-app = Flask(__name__)
+from setup_app import app
 
 @app.route('/')
 def hello_world():
