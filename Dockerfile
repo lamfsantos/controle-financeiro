@@ -4,6 +4,9 @@ FROM python:3.12.6
 # Set the working directory in the container
 WORKDIR /app
 
+# Install SQLite
+RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev
+
 # Copy the requirements file first (for caching purposes)
 COPY requirements.txt /app/
 

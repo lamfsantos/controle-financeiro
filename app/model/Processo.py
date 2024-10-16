@@ -1,4 +1,4 @@
-from repository.db import db
+from app import db
 
 class Processo(db.Model):
     processo_id = db.Column(db.Integer, primary_key=True)

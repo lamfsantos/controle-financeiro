@@ -1,8 +1,9 @@
-from model.Cliente import Cliente
+from app import db
+from model import Cliente
 from flask import jsonify
 
 def get_clientes():
-    clientes = Cliente.query.all()
+    clientes = Cliente.Cliente.query.all()
     return jsonify([{
         'cliente_id': cliente.cliente_id,
         'nome': cliente.nome,

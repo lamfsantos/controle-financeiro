@@ -1,4 +1,6 @@
-from repository.db import db
+from app import db
+
+print("Cliente model imported.")
 
 class Cliente(db.Model):
     cliente_id = db.Column(db.Integer, primary_key=True)
