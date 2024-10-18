@@ -1,6 +1,4 @@
-from app import db
-
-print("Cliente model imported.")
+from extensions import db
 
 class Cliente(db.Model):
     cliente_id = db.Column(db.Integer, primary_key=True)
