@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask
 from extensions import db
 
@@ -11,10 +10,18 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 def inicializa_blueprints():
-    from routes.clientes_routes import clientes_routes_blueprint
+    try:
+        from routes.clientes_routes import clientes_routes_blueprint
 
-    # Blueprints
-    app.register_blueprint(clientes_routes_blueprint)
+        print("Registrnado Blueprints...")
+
+        # Blueprints
+        app.register_blueprint(clientes_routes_blueprint)
+
+        print("Blueprints registrados.")
+    except Exception as e:
+        print(f"Erro ao inicializar os Blueprints: {e}")
+    
 
 inicializa_blueprints()
 
@@ -22,9 +29,7 @@ inicializa_blueprints()
 with app.app_context():
     print("Criando DB...")
     try:
-        #from model import Cliente
-        x = db.create_all()
-        print(x)
+        db.create_all()
         print("Tabelas criadas com sucesso.")
     except Exception as e:
         print(f"Erro ao criar as tabelas do banco: {e}")

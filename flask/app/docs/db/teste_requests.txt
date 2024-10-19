@@ -1,0 +1,33 @@
+#Criar cliente
+
+curl -X POST http://localhost:5000/clientes \
+     -H "Content-Type: application/json" \
+     -d '{
+           "nome": "John Doe",
+           "endereco": "123 Main St",
+           "cpf": "12345678900",
+           "rg": "11223344",
+           "email": "john.doe@example.com",
+           "telefone_principal": "123456789",
+           "telefone_secundario": "987654321",
+           "observacoes": "No additional notes"
+         }'
+
+#Edita Cliente
+
+curl -X PUT http://localhost:5000/clientes/1 \
+     -H "Content-Type: application/json" \
+     -d '{
+           "nome": "Limao Doe",
+           "endereco": "123 Main St",
+           "cpf": "12345678900",
+           "rg": "11223344",
+           "email": "john.doe@example.com",
+           "telefone_principal": "123456789",
+           "telefone_secundario": "987654321",
+           "observacoes": "No additional notes"
+         }'
+
+#Deleta Cliente
+
+curl -X DELETE http://127.0.0.1:5000/clientes/1
