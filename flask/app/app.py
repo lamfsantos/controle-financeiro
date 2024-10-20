@@ -1,13 +1,20 @@
-from flask import Flask
+from flask import Flask, request
+from flask_cors import CORS
 from extensions import db
 
 app = Flask(__name__)
+CORS(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:example@mysql/controle_financeiro'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
 
 # Initialize the SQLAlchemy object
 db.init_app(app)
+
+@app.before_request
+def handle_options_requests():
+    if request.method == 'OPTIONS':
+        return '', 200
 
 def inicializa_blueprints():
     try:
