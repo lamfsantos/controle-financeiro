@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import 'teste.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -48,25 +50,42 @@ class _ClienteFormState extends State<ClienteForm> {
       appBar: AppBar(
         title: Text('Add Cliente'),
       ),
-      body: Form(
-        key: _formKey,
-        child: Column(
-          children: <Widget>[
-            TextFormField(
-              decoration: InputDecoration(labelText: 'Nome'),
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Please enter a name';
-                }
-                return null;
-              },
-              onSaved: (value) => _nome = value!,
-            ),
-            ElevatedButton(
-              onPressed: _submit,
-              child: Text('Submit'),
-            ),
-          ],
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          constraints: BoxConstraints(maxWidth: 600),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              SizedBox(height: 40), // Add space at the top
+              TextFormField(
+                decoration: InputDecoration(labelText: 'Nome'),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter a name';
+                  }
+                  return null;
+                },
+                onSaved: (value) => _nome = value!,
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: _submit,
+                child: Text('Submit'),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondScreen()),
+                  );
+                },
+                child: Text('Go to Second Screen'),
+              ),
+            ],
+          ),
         ),
       ),
     );
