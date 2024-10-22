@@ -1,1 +1,4 @@
 app/docs/db/.$DB.drawio.bkp
+flutter/app/.dart_tool
+flutter/app/build
+flutter/app/pubspec.lock
