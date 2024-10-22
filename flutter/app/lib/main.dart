@@ -77,7 +77,7 @@ class _ClienteFormState extends State<ClienteForm> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                SizedBox(height: 10), // Add space at the top
+                //SizedBox(height: 100), // Add space at the top
                 TextFormField(
                   decoration: InputDecoration(labelText: 'Nome'),
                   validator: (value) {

@@ -19,11 +19,13 @@ def handle_options_requests():
 def inicializa_blueprints():
     try:
         from routes.clientes_routes import clientes_routes_blueprint
+        from routes.processos_routes import processos_routes_blueprint
 
         print("Registrnado Blueprints...")
 
         # Blueprints
         app.register_blueprint(clientes_routes_blueprint)
+        app.register_blueprint(processos_routes_blueprint)
 
         print("Blueprints registrados.")
     except Exception as e:
