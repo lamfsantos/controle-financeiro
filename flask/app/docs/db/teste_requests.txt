@@ -31,3 +31,16 @@ curl -X PUT http://localhost:5000/clientes/1 \
 #Deleta Cliente
 
 curl -X DELETE http://127.0.0.1:5000/clientes/1
+
+
+________________________________________________________
+
+#Criar processo
+
+curl -X POST http://localhost:5000/processos \
+     -H "Content-Type: application/json" \
+     -d '{
+           "valor_total": "1000",
+           "valor_entrada": "200",
+           "cliente_id": "2"
+         }'

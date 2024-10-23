@@ -20,7 +20,8 @@ def format_cliente(cliente):
         'email': cliente.email,
         'telefone_principal': cliente.telefone_principal,
         'telefone_secundario': cliente.telefone_secundario,
-        'observacoes': cliente.observacoes
+        'observacoes': cliente.observacoes,
+        'processos': [{'processo_id': processo.processo_id, 'valor_total': processo.valor_total, 'valor_entrada': processo.valor_entrada} for processo in cliente.processos]
     }
 
 def create_cliente(data):
@@ -43,8 +44,6 @@ def create_cliente(data):
 
 def update_cliente(data, id):
     cliente = Cliente.Cliente.query.get_or_404(id)
-
-    print(cliente)
 
     cliente.nome = data.get('nome', cliente.nome)
     cliente.endereco = data.get('endereco', cliente.endereco)

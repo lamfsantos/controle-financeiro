@@ -11,5 +11,4 @@ class Cliente(db.Model):
     telefone_secundario = db.Column(db.String(15))
     observacoes = db.Column(db.String(200), nullable=False)
 
-    def __repr__(self):
-        return f"User('{self.nome}', '{self.email}')"
+    processos = db.relationship('Processo', backref='cliente', lazy=True)
