@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask_migrate import Migrate
 from flask_cors import CORS
 from extensions import db
 
@@ -10,6 +11,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize the SQLAlchemy object
 db.init_app(app)
+migrate = Migrate(app, db)
 
 @app.before_request
 def handle_options_requests():

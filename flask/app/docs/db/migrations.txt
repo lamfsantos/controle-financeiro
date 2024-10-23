@@ -1,0 +1,10 @@
+docker compose up
+
+-> Wait for the server to start up then shut it down, but keep the container running
+
+docker exec -it flask-app /bin/bash
+pkill -f flask
+
+flask db init
+flask db migrate -m "Initial migration"
+flask db upgrade
