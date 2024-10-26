@@ -24,6 +24,3 @@ def update_cliente(id):
 @clientes_routes_blueprint.route('/clientes/<int:id>', methods=['DELETE'])
 def delete_cliente(id):
     return cliente_service.delete_cliente(id)
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
