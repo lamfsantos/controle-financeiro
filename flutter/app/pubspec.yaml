@@ -1,5 +1,5 @@
-name: your_app_name
-description: A new Flutter project.
+name: controle_financeiro
+description: Controle financeiro para advogados.
 
 publish_to: 'none' # Remove this line if you plan to publish your package
 

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 //import 'package:http/http.dart';
-import '/forms/cadastra_cliente_form.dart';
+//import '/forms/cadastra_cliente_form.dart';
+import '/tables/lista_clientes.dart';
 
-class Login extends StatefulWidget {
+class LoginForm extends StatefulWidget {
   @override
   _LoginFormState createState() => _LoginFormState();
 }
 
-class _LoginFormState extends State<Login> {
+class _LoginFormState extends State<LoginForm> {
   //Declaração de variáveis
   final _formKey = GlobalKey<FormState>();
   String _login = '';
@@ -25,7 +26,7 @@ class _LoginFormState extends State<Login> {
       print(_senha);
 
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => ClienteForm()));
+          context, MaterialPageRoute(builder: (context) => ClientesPage()));
     }
   }
 
@@ -39,7 +40,7 @@ class _LoginFormState extends State<Login> {
       ),
       body: Center(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          //padding: EdgeInsets.symmetric(horizontal: 20),
           constraints: BoxConstraints(maxWidth: 600),
           child: Form(
             key: _formKey,

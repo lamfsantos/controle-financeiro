@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert'; // Add this line
 import 'teste.dart';
+import 'package:controle_financeiro/config.dart';
 
 class ClienteForm extends StatefulWidget {
   @override
@@ -23,8 +24,7 @@ class _ClienteFormState extends State<ClienteForm> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       final response = await http.post(
-        Uri.parse(
-            'http://localhost:5000/clientes'), // Replace with your API host
+        Uri.parse('${Config.flask_url}/clientes'), // Replace with your API host
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'nome': _nome,

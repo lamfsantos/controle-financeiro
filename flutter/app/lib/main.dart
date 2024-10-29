@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Controle Financeiro', home: Login() //ClienteForm(),
+        title: 'Controle Financeiro', home: LoginForm() //ClienteForm(),
         );
   }
 }

@@ -9,6 +9,6 @@ class Cliente(db.Model):
     email = db.Column(db.String(50))
     telefone_principal = db.Column(db.String(15), nullable=False)
     telefone_secundario = db.Column(db.String(15))
-    observacoes = db.Column(db.String(200), nullable=False)
+    observacoes = db.Column(db.String(200))
 
     processos = db.relationship('Processo', backref='cliente', lazy=True)
