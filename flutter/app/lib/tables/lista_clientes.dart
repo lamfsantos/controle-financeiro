@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert'; // For decoding JSON
 import 'package:http/http.dart' as http; // Add http dependency
 import 'package:controle_financeiro/config.dart';
+import 'package:controle_financeiro/forms/cadastra_cliente_form.dart';
 
 class ClientesPage extends StatefulWidget {
   @override
@@ -35,7 +36,7 @@ class _ClientesPageState extends State<ClientesPage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 50),
           constraints: BoxConstraints(maxWidth: 600),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -52,24 +53,26 @@ class _ClientesPageState extends State<ClientesPage> {
                     return DataTable(
                       columns: const <DataColumn>[
                         DataColumn(label: Text('Nome')),
-                        DataColumn(label: Text('Endereço')),
-                        DataColumn(label: Text('CPF')),
-                        DataColumn(label: Text('RG')),
-                        DataColumn(label: Text('Email')),
-                        DataColumn(label: Text('Telefone 1')),
-                        DataColumn(label: Text('Telefone 2')),
-                        DataColumn(label: Text('Observações')),
+                        //DataColumn(label: Text('Endereço')),
+                        //DataColumn(label: Text('CPF')),
+                        //DataColumn(label: Text('RG')),
+                        //DataColumn(label: Text('Email')),
+                        //DataColumn(label: Text('Telefone 1')),
+                        //DataColumn(label: Text('Telefone 2')),
+                        //DataColumn(label: Text('Observações')),
+                        DataColumn(label: Text('Opções')),
                       ],
                       rows: snapshot.data!
                           .map((cliente) => DataRow(cells: [
                                 DataCell(Text(cliente.nome)),
-                                DataCell(Text(cliente.endereco)),
-                                DataCell(Text(cliente.cpf)),
-                                DataCell(Text(cliente.rg)),
-                                DataCell(Text(cliente.email)),
-                                DataCell(Text(cliente.telefone_principal)),
-                                DataCell(Text(cliente.telefone_secundario)),
-                                DataCell(Text(cliente.observacoes)),
+                                //DataCell(Text(cliente.endereco)),
+                                //DataCell(Text(cliente.cpf)),
+                                //DataCell(Text(cliente.rg)),
+                                //DataCell(Text(cliente.email)),
+                                //DataCell(Text(cliente.telefone_principal)),
+                                //DataCell(Text(cliente.telefone_secundario)),
+                                //DataCell(Text(cliente.observacoes)),
+                                DataCell(Text('')),
                               ]))
                           .toList(),
                     );
@@ -80,6 +83,17 @@ class _ClientesPageState extends State<ClientesPage> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Define what happens when the button is pressed
+          print('+ Apertado');
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ClienteForm()));
+        },
+        child: Icon(Icons.add), // The '+' icon
+        tooltip: 'Add',
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

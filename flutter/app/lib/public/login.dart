@@ -40,7 +40,7 @@ class _LoginFormState extends State<LoginForm> {
       ),
       body: Center(
         child: Container(
-          //padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 50),
           constraints: BoxConstraints(maxWidth: 600),
           child: Form(
             key: _formKey,
@@ -71,7 +71,8 @@ class _LoginFormState extends State<LoginForm> {
                   onSaved: (value) => _senha = value!,
                 ),
                 SizedBox(height: 20),
-                ElevatedButton(onPressed: _submit, child: Text('Entra'))
+                ElevatedButton(onPressed: _submit, child: Text('Entra')),
+                SizedBox(height: 50),
               ],
             ),
           ),

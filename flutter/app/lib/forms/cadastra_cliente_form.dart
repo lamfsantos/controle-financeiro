@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert'; // Add this line
 import 'teste.dart';
 import 'package:controle_financeiro/config.dart';
+import 'package:controle_financeiro/tables/lista_clientes.dart';
 
 class ClienteForm extends StatefulWidget {
   @override
@@ -40,6 +41,8 @@ class _ClienteFormState extends State<ClienteForm> {
       if (response.statusCode == 201) {
         // Handle successful response
         print('Cliente added: $_nome');
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ClientesPage()));
       } else {
         // Handle error response
         print('Failed to add cliente');
