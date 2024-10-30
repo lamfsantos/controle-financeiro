@@ -28,6 +28,10 @@ class _ClientesPageState extends State<ClientesPage> {
     }
   }
 
+  void _teste_botoes() {
+    print('Botão apertado');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +76,19 @@ class _ClientesPageState extends State<ClientesPage> {
                                 //DataCell(Text(cliente.telefone_principal)),
                                 //DataCell(Text(cliente.telefone_secundario)),
                                 //DataCell(Text(cliente.observacoes)),
-                                DataCell(Text('')),
+
+                                // DataCell(),
+                                // DataCell(ElevatedButton(
+                                //     onPressed: _teste_botoes,
+                                //     child: Text('Processos'))),
+                                DataCell(Row(
+                                  children: [
+                                    IconButton(
+                                        onPressed: _teste_botoes,
+                                        color: Colors.blue,
+                                        icon: Icon(Icons.arrow_forward)),
+                                  ],
+                                )),
                               ]))
                           .toList(),
                     );
