@@ -1,3 +1,4 @@
+import 'package:controle_financeiro/tables/lista_processos.dart';
 import 'package:flutter/material.dart';
 import 'package:controle_financeiro/model/cliente.dart';
 
@@ -21,6 +22,12 @@ class _ClientInfoPageState extends State<ClientInfoPage> {
   late TextEditingController telefonePrincipalController;
   late TextEditingController telefoneSecundarioController;
   late TextEditingController observacoesController;
+
+  //Teste - remover depois
+  List<Map<String, String>> otherInfo = [
+    {'key': 'Additional Info 1', 'value': 'Value 1'},
+    {'key': 'Additional Info 2', 'value': 'Value 2'},
+  ];
 
   @override
   void initState() {
@@ -130,6 +137,8 @@ class _ClientInfoPageState extends State<ClientInfoPage> {
                 child: Text('Editar'),
               ),
             ],
+            SizedBox(height: 50),
+            ListaProcessosTable(otherInfo: otherInfo),
           ],
         ),
       ),
