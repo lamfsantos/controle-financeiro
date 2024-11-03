@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http; // Add http dependency
 import 'package:controle_financeiro/config.dart';
 import 'package:controle_financeiro/forms/cadastra_cliente_form.dart';
 import 'package:controle_financeiro/model/cliente.dart';
+import 'package:controle_financeiro/edit/cliente_info.dart';
 
 class ClientesPage extends StatefulWidget {
   @override
@@ -29,8 +30,32 @@ class _ClientesPageState extends State<ClientesPage> {
     }
   }
 
-  void _teste_botoes() {
-    print('Botão apertado');
+  void _navigateToClientInfoPage(
+      BuildContext context, List<Cliente> clientes, int clientId) {
+    Cliente? selectedClient = clientes.firstWhere(
+      (cliente) => cliente.cliente_id == clientId,
+      orElse: () => Cliente(
+        cliente_id: 0,
+        nome: 'Unknown',
+        email: '',
+        cpf: '',
+        endereco: '',
+        observacoes: '',
+        rg: '',
+        telefone_principal: '',
+        telefone_secundario: '',
+      ),
+    );
+    if (selectedClient.cliente_id != 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ClientInfoPage(cliente: selectedClient),
+        ),
+      );
+    } else {
+      print('Cliente não encontrado');
+    }
   }
 
   @override
@@ -85,7 +110,11 @@ class _ClientesPageState extends State<ClientesPage> {
                                 DataCell(Row(
                                   children: [
                                     IconButton(
-                                        onPressed: _teste_botoes,
+                                        onPressed: () =>
+                                            _navigateToClientInfoPage(
+                                                context,
+                                                snapshot.data!,
+                                                cliente.cliente_id),
                                         color: Colors.blue,
                                         icon: Icon(Icons.arrow_forward)),
                                   ],
@@ -102,12 +131,10 @@ class _ClientesPageState extends State<ClientesPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Define what happens when the button is pressed
-          print('+ Apertado');
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => ClienteForm()));
         },
-        child: Icon(Icons.add), // The '+' icon
+        child: Icon(Icons.add),
         tooltip: 'Add',
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,

@@ -25,7 +25,7 @@ class _ClienteFormState extends State<ClienteForm> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       final response = await http.post(
-        Uri.parse('${Config.flask_url}/clientes'), // Replace with your API host
+        Uri.parse('${Config.flask_url}/clientes'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'nome': _nome,
@@ -40,7 +40,6 @@ class _ClienteFormState extends State<ClienteForm> {
       );
       if (response.statusCode == 201) {
         // Handle successful response
-        print('Cliente added: $_nome');
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => ClientesPage()));
       } else {
