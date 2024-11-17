@@ -2,6 +2,8 @@ import 'package:controle_financeiro/tables/lista_processos.dart';
 import 'package:flutter/material.dart';
 import 'package:controle_financeiro/model/cliente.dart';
 
+import '../model/processo.dart';
+
 class ClientInfoPage extends StatefulWidget {
   final Cliente cliente;
 
@@ -23,6 +25,8 @@ class _ClientInfoPageState extends State<ClientInfoPage> {
   late TextEditingController telefoneSecundarioController;
   late TextEditingController observacoesController;
 
+  List<Processo> processos = List.empty();
+
   //Teste - remover depois
   List<Map<String, String>> otherInfo = [
     {'key': 'Additional Info 1', 'value': 'Value 1'},
@@ -43,6 +47,8 @@ class _ClientInfoPageState extends State<ClientInfoPage> {
         TextEditingController(text: widget.cliente.telefone_secundario);
     observacoesController =
         TextEditingController(text: widget.cliente.observacoes);
+
+    processos = widget.cliente.processos;
   }
 
   @override
@@ -138,7 +144,8 @@ class _ClientInfoPageState extends State<ClientInfoPage> {
               ),
             ],
             SizedBox(height: 50),
-            ListaProcessosTable(otherInfo: otherInfo),
+            //ListaProcessosTable(otherInfo: otherInfo),
+            ListaProcessosTable(otherInfo: otherInfo, processos: processos),
           ],
         ),
       ),

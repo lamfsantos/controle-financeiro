@@ -21,6 +21,7 @@ def get_processo_by_id(id):
 
 def create_processo(data):
     novo_processo = Processo.Processo(
+        numero_processo= data['numero_processo'],
         valor_total= data['valor_total'],
         valor_entrada= data['valor_entrada'],
         cliente_id= data['cliente_id'],

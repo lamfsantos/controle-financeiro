@@ -4,7 +4,7 @@ from flask_cors import CORS
 from extensions import db
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["http://localhost:8000", "http://127.0.0.1:5555"]}})
+CORS(app, resources={r"/*": {"origins": ["http://localhost:8000", "http://127.0.0.1:5555", "http://localhost:5555"]}})
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:example@mysql/controle_financeiro'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 

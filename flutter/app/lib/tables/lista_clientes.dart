@@ -35,16 +35,16 @@ class _ClientesPageState extends State<ClientesPage> {
     Cliente? selectedClient = clientes.firstWhere(
       (cliente) => cliente.cliente_id == clientId,
       orElse: () => Cliente(
-        cliente_id: 0,
-        nome: 'Unknown',
-        email: '',
-        cpf: '',
-        endereco: '',
-        observacoes: '',
-        rg: '',
-        telefone_principal: '',
-        telefone_secundario: '',
-      ),
+          cliente_id: 0,
+          nome: 'Unknown',
+          email: '',
+          cpf: '',
+          endereco: '',
+          observacoes: '',
+          rg: '',
+          telefone_principal: '',
+          telefone_secundario: '',
+          processos: List.empty()),
     );
     if (selectedClient.cliente_id != 0) {
       Navigator.push(

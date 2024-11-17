@@ -67,6 +67,7 @@ class _LoginFormState extends State<LoginForm> {
                     if (value!.isEmpty) {
                       return 'Por favor digite uma senha';
                     }
+                    return null;
                   },
                   onSaved: (value) => _senha = value!,
                 ),

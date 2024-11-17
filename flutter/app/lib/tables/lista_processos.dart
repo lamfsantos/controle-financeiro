@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../model/processo.dart';
+
 class ListaProcessosTable extends StatefulWidget {
   final List<Map<String, String>> otherInfo;
+  final List<Processo> processos;
 
-  ListaProcessosTable({required this.otherInfo});
+  ListaProcessosTable({required this.otherInfo, required this.processos});
 
   @override
   _OtherInfoTableState createState() => _OtherInfoTableState();
@@ -11,6 +14,7 @@ class ListaProcessosTable extends StatefulWidget {
 
 class _OtherInfoTableState extends State<ListaProcessosTable> {
   late List<Map<String, String>> otherInfo;
+  late List<Processo> processos;
 
   @override
   void initState() {
@@ -25,6 +29,10 @@ class _OtherInfoTableState extends State<ListaProcessosTable> {
         otherInfo[index]['value'] = value;
       }
     });
+
+    for (var x in processos) {
+      print(x.processo_id);
+    }
   }
 
   @override
