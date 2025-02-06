@@ -79,6 +79,16 @@ class _ClientesPageState extends State<ClientesPage> {
                     return Center(child: CircularProgressIndicator());
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
+                  } else if (snapshot.hasData && snapshot.data!.isEmpty) {
+                    return Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          'Nenhum Cliente cadastrado',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
+                    );
                   } else {
                     return DataTable(
                       columns: const <DataColumn>[

@@ -1,4 +1,4 @@
-#Pra rodar o preview no vscode
+#Pra rodar o preview no vscode de forma independete, fora do container
 
 -> primeiro instalar as dependencias:
 
