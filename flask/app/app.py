@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
-from flask_migrate import Migrate
-from flask_cors import CORS
+from flask_migrate import Migrate# type: ignore
+from flask_cors import CORS # type: ignore
 from extensions import db
-import jwt
+import jwt # type: ignore
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": ["http://localhost:8000", "http://127.0.0.1:5555", "http://localhost:5555"]}})

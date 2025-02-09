@@ -21,7 +21,14 @@ def format_cliente(cliente):
         'telefone_principal': cliente.telefone_principal,
         'telefone_secundario': cliente.telefone_secundario,
         'observacoes': cliente.observacoes,
-        'processos': [{'processo_id': processo.processo_id, 'valor_total': processo.valor_total, 'valor_entrada': processo.valor_entrada} for processo in cliente.processos]
+        'processos': [
+            {
+                'processo_id': processo.processo_id, 
+                'valor_total': processo.valor_total, 
+                'valor_entrada': processo.valor_entrada, 
+                'numero_processo': processo.numero_processo
+            } for processo in cliente.processos
+        ]
     }
 
 def create_cliente(data):

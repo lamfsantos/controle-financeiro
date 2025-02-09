@@ -40,7 +40,7 @@ ________________________________________________________
 curl -X POST http://localhost:5000/processos \
      -H "Content-Type: application/json" \
      -d '{
-            "numero_processo": "123",
+           "numero_processo": "123",
            "valor_total": "1000",
            "valor_entrada": "200",
            "cliente_id": "2"

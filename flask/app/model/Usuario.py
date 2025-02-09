@@ -1,5 +1,5 @@
 from extensions import db
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash # type: ignore
 
 class Usuario(db.Model):
     usuario_id = db.Column(db.Integer, primary_key=True)

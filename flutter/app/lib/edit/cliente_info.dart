@@ -27,12 +27,6 @@ class _ClientInfoPageState extends State<ClientInfoPage> {
 
   List<Processo> processos = List.empty();
 
-  //Teste - remover depois
-  List<Map<String, String>> otherInfo = [
-    {'key': 'Additional Info 1', 'value': 'Value 1'},
-    {'key': 'Additional Info 2', 'value': 'Value 2'},
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -144,8 +138,7 @@ class _ClientInfoPageState extends State<ClientInfoPage> {
               ),
             ],
             SizedBox(height: 50),
-            //ListaProcessosTable(otherInfo: otherInfo),
-            ListaProcessosTable(otherInfo: otherInfo, processos: processos),
+            ListaProcessosTable(processos: processos),
           ],
         ),
       ),

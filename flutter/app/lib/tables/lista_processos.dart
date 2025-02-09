@@ -3,30 +3,33 @@ import 'package:flutter/material.dart';
 import '../model/processo.dart';
 
 class ListaProcessosTable extends StatefulWidget {
-  final List<Map<String, String>> otherInfo;
   final List<Processo> processos;
 
-  ListaProcessosTable({required this.otherInfo, required this.processos});
+  ListaProcessosTable({required this.processos});
 
   @override
-  _OtherInfoTableState createState() => _OtherInfoTableState();
+  _ListaProcessosTableState createState() => _ListaProcessosTableState();
 }
 
-class _OtherInfoTableState extends State<ListaProcessosTable> {
-  late List<Map<String, String>> otherInfo;
+class _ListaProcessosTableState extends State<ListaProcessosTable> {
   late List<Processo> processos;
 
   @override
   void initState() {
     super.initState();
-    otherInfo = widget.otherInfo;
+    processos = widget.processos;
   }
 
-  void updateInfo(String key, String value) {
+  void updateProcesso(int processoId, double valorEntrada) {
     setState(() {
-      int index = otherInfo.indexWhere((info) => info['key'] == key);
+      int index = processos.indexWhere((processo) => processo.processo_id == processoId);
       if (index != -1) {
-        otherInfo[index]['value'] = value;
+        processos[index] = Processo(
+          processo_id: processos[index].processo_id,
+          valor_total: processos[index].valor_total,
+          valor_entrada: valorEntrada,
+          numero_processo: processos[index].numero_processo,
+        );
       }
     });
 
@@ -39,13 +42,17 @@ class _OtherInfoTableState extends State<ListaProcessosTable> {
   Widget build(BuildContext context) {
     return DataTable(
       columns: const <DataColumn>[
-        DataColumn(label: Text('Key')),
-        DataColumn(label: Text('Value')),
+        DataColumn(label: Text('Processo ID')),
+        DataColumn(label: Text('Valor Total')),
+        DataColumn(label: Text('Valor Entrada')),
+        DataColumn(label: Text('Número Processo')),
       ],
-      rows: otherInfo
-          .map((info) => DataRow(cells: [
-                DataCell(Text(info['key'] ?? 'aaa')),
-                DataCell(Text(info['value'] ?? 'aaa')),
+      rows: processos
+          .map((processo) => DataRow(cells: [
+                DataCell(Text(processo.processo_id.toString())),
+                DataCell(Text(processo.valor_total.toString())),
+                DataCell(Text(processo.valor_entrada.toString())),
+                DataCell(Text(processo.numero_processo.toString())),
               ]))
           .toList(),
     );
